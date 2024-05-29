@@ -178,8 +178,9 @@ def calculate_similarity(file_path, mask): # DON'T USE THIS FUNCTION
 #    matrix = get_matrix_from_structure(args.file, marker_mask)
 #    return dist # The objective of the function is to reduce
 
-GLOBAL_FILE_PATH = "data/gallus-gallus.str" # IMPORTANT, UPDATE IT ACCORDING TO THE
-GLOBAL_FILE_PATH = "data/genotype-data/Naemorhedus-griseus.str"
+# GLOBAL_FILE_PATH = "data/gallus-gallus.str" # IMPORTANT, UPDATE IT ACCORDING TO THE
+# GLOBAL_FILE_PATH = "data/genotype-data/Naemorhedus-griseus.str"
+GLOBAL_FILE_PATH = "data/EMA_pop_clean.str"
 FULL_MATRIX = None
 def calculate_average_genetic_distance(file_path, mask):
     global FULL_MATRIX
