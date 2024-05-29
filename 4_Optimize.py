@@ -64,7 +64,7 @@ def get_matrix_from_structure(file_path, marker_array_mask):
     n_indiv = len(individual_list)
     n_loci = len(structure_data[0])
     env = os.environ.copy()
-    env["R_LIBS"] = "r_lib"
+    env["R_LIBS"] = "Rlib"
     subprocess.run([RSCRIPT_PATH, "Generate_individual_matrix.R", slug, str(n_indiv), str(n_loci)], env=env)
     command_outfile = open(f"tmp/{slug}.out").read().strip().split("\n")
     command_outfile = [a.split("\t") for a in command_outfile]
