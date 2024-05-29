@@ -1,7 +1,13 @@
 import numpy as np
-FILE_PATH="data/EMA_pop.str"
+import argparse
+
+# User argument parameter instead "data/EMA_pop.str"
+argparser = argparse.ArgumentParser()
+argparser.add_argument('--input', help='Input file as a distance matrix')
+args = argparser.parse_args()
+
 if __name__ == '__main__':
-    data = open("data/EMA_pop.str").read().strip().split("\n")
+    data = open(args.input).read().strip().split("\n")
     data = [a.split(" ") for a in data]
 
     for i,row in enumerate(data):
@@ -12,5 +18,5 @@ if __name__ == '__main__':
                 except:
                     pass
 
-    open(FILE_PATH.replace(".str", "") + "_clean.str", "w").write("\n".join([" ".join(a) for a in data]))
+    open(args.input.replace(".str", "") + "_clean.str", "w").write("\n".join([" ".join(a) for a in data]))
     print()

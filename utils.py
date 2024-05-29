@@ -147,7 +147,7 @@ def get_matrix(file_path, mask):
     print("Truncated data written to file")
     n_indiv = len(individual_list)
     n_loci = len(structure_data[0])
-    subprocess.run([RSCRIPT_PATH, "Generate_individual_matrix.R", slug, str(n_indiv), str(n_loci)], env=env)
+    subprocess.run([RSCRIPT_PATH, "Generate_individual_matrix.R", slug, str(n_indiv), str(n_loci)])
     command_outfile = open(f"tmp/{slug}.out").read().strip().split("\n")
     command_outfile = [a.split("\t") for a in command_outfile]
     distance_matrix = np.zeros((n_indiv, n_indiv))
@@ -184,10 +184,11 @@ FULL_MATRIX = None
 def calculate_average_genetic_distance(file_path, mask):
     global FULL_MATRIX
     global GLOBAL_FILE_PATH
+
     MAT = get_matrix(file_path, mask)
     if FULL_MATRIX is None:
         FULL_MATRIX = get_matrix(GLOBAL_FILE_PATH, [True]*28) # Ano
-    mat = (MAT / MAT.mean()) - (FULL_MATRIX / FULL_MATRIX.mean())
+    mat = (MAT / MAT.mean()) - (FULL_MATRIX / FULL_MATRIX.mean()) # Should change the GLOBAL_FILE_PATH
     return np.absolute(mat).mean()
     #print()
     #mat = (matrix / matrix.mean()) - (ref_matrix / ref_matrix.mean())

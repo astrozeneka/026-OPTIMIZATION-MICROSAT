@@ -4,10 +4,10 @@
 #new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 
 
-#install.packages("ape", repos='http://cran.us.r-project.org', lib='r_lib')
-#install.packages("ggplot2", repos='http://cran.us.r-project.org', lib='r_lib')
-#install.packages("adegenet", repos='http://cran.us.r-project.org', lib='r_lib')
-#install.packages("eimpute", repos='http://cran.us.r-project.org', lib='r_lib')
+#install.packages("ape", repos='http://cran.us.r-project.org', lib='Rlib')
+#install.packages("ggplot2", repos='http://cran.us.r-project.org', lib='Rlib')
+#install.packages("adegenet", repos='http://cran.us.r-project.org', lib='Rlib')
+#install.packages("eimpute", repos='http://cran.us.r-project.org', lib='Rlib')
 library("ape")
 library("adegenet") # Maybe don't need to make pcoa and ggplot
 library("eimpute")
